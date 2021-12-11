@@ -259,7 +259,12 @@
 
 
 
-
+(test (parse "{with {hello world} c {}}") =error> "parse-sexpr: bad `with' syntax in (with (hello world) c ()")
+(test (parse "{x}")  =error> "parse-sexpr: bad syntax in (x)")
+(test (parse "{1 2 3  4 1 4  4 2 3 4 1 2 3}") => (Set '(1 2 3 4)))
+(test (parse "{1 2 3  4 1 4  4 2 3 4 1 2 3}") => (Set '(1 2 3 4)))
+(test (parse "{union {1 2 3} {4 2 3}}") => (Union (Set '(1 2 3)) (Set '(2 3 4))))
+(test (parse "{fun {x x} x}") =error> "parse-sexpr: `fun' has a duplicate param name in (fun (x x) x)")
 (test (parse "{fun {x y} {intersect {1 2 3} {4 2 3}}}") => (Fun 'x 'y (Inter (Set '(1 2 3)) (Set '(2 3 4)))))
 (test (parse "{1 2 3  4 1 4  4 2 3 4 1 2 3}") => (Set '(1 2 3 4)))
 (test (parse "{union {1 2 3} {4 2 3}}") => (Union (Set '(1 2 3)) (Set '(2 3 4))))
