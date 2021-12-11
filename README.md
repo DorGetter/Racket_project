@@ -1,9 +1,8 @@
 # Racket_project
 
 
-#|
 
-Open questions:
+# Open questions:
 
 1. 
 Ans:
@@ -67,4 +66,3 @@ Ans:
 In CONS it does not matter if we write CALLS or CALLD it will work one way or the other.
 Regarding others it will also not cause any change because in our environment we have already set FIRST and SECOND with CALLS
 so they already have preset values that will not change so there will be no difference.
-|#
